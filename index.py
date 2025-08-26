@@ -2,13 +2,13 @@ import os
 import random
 import subprocess
 import tempfile
-from ai import get_scores
+from comparison import get_scores
 from moviepy import VideoFileClip, concatenate_videoclips # type: ignore
 
-directory_path = "F:\Recordings\JJK\Season 2\Episode 13 Cleaned"
+directory_path = "F:\Recordings\JJK\Season 2\Episode 4 Cleaned"
 all_entries = os.listdir(directory_path)
-clip_count = 3
-max_clip_length = 6
+clip_count = 4
+max_clip_length = 9
 
 def dedupe_clip(input_path):
     # Create a temporary file for the deduped video
@@ -53,8 +53,6 @@ for sample in sampled_episodes:
 clip_scores = get_scores(sampled_episodes)
 
 final_clip_list = []
-
-#[0, 3, 4, 5, 2, 1]
 
 for i in range(len(clip_scores)):
     idx = clip_scores[i]
